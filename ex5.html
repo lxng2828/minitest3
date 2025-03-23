@@ -23,21 +23,21 @@
             }
             return true;
         }
-        function countPrime(arr) {
-            let count = 0;
+        function sumOfPrimeNumber(arr) {
+            let sum = 0;
             for (const element of arr) {
                 let num = Number(element)
                 if (!isNaN(num) && isPrime(num)) {
-                    count++
+                    sum = sum + num;
                 }
             }
-            return count;
+            return sum;
         }
         const btn = document.getElementById("calc-btn");
         btn.addEventListener("click", function () {
             let arr = document.getElementById("input-arr").value.split(",");
             let result = document.getElementById("result");
-            result.innerText = `so luong so nguyen to co trong mang la ${countPrime(arr)}`;
+            result.innerText = `tong cac so nguyen to co trong mang la ${sumOfPrimeNumber(arr)}`;
         });
     </script>
 </body>
