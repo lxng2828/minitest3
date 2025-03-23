@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex2</title>
+</head>
+
+<body>
+    <input type="number" id="math">
+    <label for="math">diem toan</label>
+    <br><br>
+    <input type="number" id="english">
+    <label for="english">diem tieng anh</label>
+    <br><br>
+    <input type="number" id="literature">
+    <label for="literature">diem ngu van</label>
+    <br><br>
+    <button id="calc-avg-score-btn">tinh diem trung binh</button>
+    <h2 id="result">diem trung binh hien ra o day</h2>
+    <script>
+        function calcAvgScore(score1, score2, score3) {
+            return (score1 + score2 + score3) / 3;
+        }
+        const btn = document.getElementById("calc-avg-score-btn");
+        btn.addEventListener("click", function () {
+            let mathScore = parseInt(document.getElementById("math").value);
+            let englishScore = parseInt(document.getElementById("english").value);
+            let literatureScore = parseInt(document.getElementById("literature").value);
+            let result = document.getElementById("result");
+            let avgScore = calcAvgScore(mathScore, englishScore, literatureScore);
+            if (avgScore > 8) {
+                result.innerText = `diem trung binh la ${avgScore} xep hang tot`
+            } else if (avgScore > 5) {
+                result.innerText = `diem trung binh la ${avgScore} xep hang kha`
+            } else {
+                result.innerText = `diem trung binh la ${avgScore} xep hang trung binh`
+            }
+        });
+    </script>
+</body>
+
+</html>

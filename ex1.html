@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex1</title>
+</head>
+
+<body>
+    <input type="text" id="input-arr">
+    <label for="input-arr">nhap vap 1 mang cach nhau boi dau ","</label>
+    <br><br>
+    <input type="text" id="input-element">
+    <label for="input-element">nhap vao phan tu muon xoa</label>
+    <br><br>
+    <button id="delete-element">Xoa</button>
+    <br><br>
+    <h2 id="result"></h2>
+    <script>
+        function removeElementFromArray(array, element) {
+            let index = array.indexOf(element);
+            while (index !== -1) {
+                array.splice(index, 1);
+                index = array.indexOf(element);
+            }
+        }
+        const btn = document.getElementById("delete-element");
+        btn.addEventListener("click", function () {
+            let arrInput = document.getElementById("input-arr").value.split(",");
+            let elementInput = document.getElementById("input-element").value;
+            let result = document.getElementById("result");
+            if (arrInput.indexOf(elementInput) !== -1) {
+                removeElementFromArray(arrInput, elementInput);
+                result.innerText = `mang sau khi xoa la ${arrInput.join(",")}`;
+            } else {
+                result.innerText = `khong ton tai phan tu ${elementInput} trong mang`;
+            }
+        });
+    </script>
+</body>
+
+</html>

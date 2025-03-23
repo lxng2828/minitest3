@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex4</title>
+</head>
+
+<body>
+    <input type="text" id="input-arr">
+    <label for="input-arr">nhap vap 1 mang cach nhau boi dau ","</label>
+    <br><br>
+    <input type="text" id="input-a">
+    <label for="input-a">nhap vao phan tu a</label>
+    <br><br>
+    <button id="count-element">dem phan tu a</button>
+    <br><br>
+    <h2 id="result">ket qua hien ra o day</h2>
+    <script>
+        function countElement(arr, a) {
+            let cout = 0;
+            for (const element of arr) {
+                if (element === a) {
+                    cout++;
+                }
+            }
+            return cout;
+        }
+        const btn = document.getElementById("count-element");
+        btn.addEventListener("click", function () {
+            let arr = document.getElementById("input-arr").value.split(",");
+            let a = document.getElementById("input-a").value;
+            let result = document.getElementById("result");
+            result.innerText = `so phan tu a co trong chuoi la ${countElement(arr, a)}`
+        });
+    </script>
+</body>
+
+</html>
